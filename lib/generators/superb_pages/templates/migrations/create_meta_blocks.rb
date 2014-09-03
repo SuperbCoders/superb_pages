@@ -1,7 +1,7 @@
 class CreateMetaBlocks < ActiveRecord::Migration
   def change
     create_table :meta_blocks do |t|
-      t.belongs_to :object, polymorphic: true
+      t.belongs_to :meta_blockable, polymorphic: true
       t.string   :title
       t.text     :description
       t.text     :keywords
@@ -12,6 +12,6 @@ class CreateMetaBlocks < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :meta_blocks, [:object_id, :object_type]
+    add_index :meta_blocks, [:meta_blockable_id, :meta_blockable_type]
   end
 end

@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903172858) do
+ActiveRecord::Schema.define(version: 20140903205018) do
 
   create_table "meta_blocks", force: true do |t|
-    t.integer  "object_id"
-    t.string   "object_type"
+    t.integer  "meta_blockable_id"
+    t.string   "meta_blockable_type"
     t.string   "title"
     t.text     "description"
     t.text     "keywords"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140903172858) do
     t.datetime "updated_at"
   end
 
-  add_index "meta_blocks", ["object_id", "object_type"], name: "index_meta_blocks_on_object_id_and_object_type"
+  add_index "meta_blocks", ["meta_blockable_id", "meta_blockable_type"], name: "index_meta_blocks_on_meta_blockable_id_and_meta_blockable_type"
 
   create_table "pages", force: true do |t|
     t.string   "slug"
