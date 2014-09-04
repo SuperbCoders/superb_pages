@@ -1,4 +1,4 @@
-module Hermitage
+module SuperbPages
   module Rails
     class Engine < ::Rails::Engine
     end
